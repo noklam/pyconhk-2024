@@ -1,0 +1,24 @@
+image: gitpod/workspace-python-3.11
+
+tasks:
+  # We want packages installed during the pre-build init steps to go to /workspace
+  # rather than ~ so that they are persisted. Gitpod sets PIP_USER=yes to ensure this,
+  # but pre-commit requires PIP_USER=no. Hence we set PIP_USER=no and use
+  # pip install --user to install to /workspace.
+  - name: pycon
+    before: |
+      echo PIP_USER=no >> ~/.bashrc && export PIP_USER=no
+      sudo apt-get update & sudo apt-get install openjdk-8-jdk
+    init: |
+      pip install uv
+      uv venv
+      echo source .venv/bin/activate >> ~/.bashrc
+      source ~/.bashrc
+      uv pip install -r requirements.txt
+    command: |
+      pre-commit install --install-hooks
+      clear
+
+  - name: system
+    init: |
+      source .venv/bin/activate

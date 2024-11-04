@@ -1,0 +1,4 @@
+*.duckdb
+*.parquet
+*.csv
+*.pdf
