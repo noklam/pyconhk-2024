@@ -12,6 +12,11 @@ duckdb
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8` # Need to run this on M2
 
+or
+
+run it with Docker to avoid Java installation on M2.
+`docker run -it -v "$(pwd)":/opt/spark/app bitnami/spark:3.3 /bin/bash`
+
 Create the TPCH benchmark:
 ```
 INSTALL tpch;
