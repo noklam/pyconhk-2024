@@ -1,3 +1,3 @@
 ibis-framework[duckdb]
 jupyter
-sqlframe[duckdb]
+sqlframe[duckdb]==3.7.0
