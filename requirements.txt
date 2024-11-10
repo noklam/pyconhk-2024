@@ -4,3 +4,4 @@ sqlframe[duckdb]==3.7.0
 httpx
 asyncio
 sqlglot[rs]
+pyspark
